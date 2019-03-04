@@ -10,10 +10,30 @@
   <%= @movie.director %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
+<% @movie.reviews.each do |review| %>
+  <p> name: <%=review.reviewer%></p>
+  <p> review: <%= review.body%> </p>
+  <p> rating: <%= review.rating%> </p>
+  <%end%>
+<h2> Add a review </h2>
+<%= form_with(model: [@movie, @movie.reviews.build], local:true) do |form| %>
+  <p>
+  <%= form.label :reviewer %>
+  <%= form.text_field :reviewer %>
+  </p>
+  <p>
+  <%= form.label :body %>
+  <%= form.text_field :body %>
+  </p>
+  <p>
+  <%= form.label :rating %>
+  <%= form.text_field :rating %>
+  </p>
+  <p>
+  <%= form.submit %>
+  </p>
+  <%end%>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

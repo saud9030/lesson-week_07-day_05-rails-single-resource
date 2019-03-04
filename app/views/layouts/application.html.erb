@@ -10,6 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+
+     <h6> <%= link_to 'homepage', root_path%> </h6>
+    <%= yield  %>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to 'Books', books_path%>
+        </li>
+        <li>
+          <%= link_to 'Movies', movies_path%>
+        </li>
+        <li>
+          <%= link_to 'Ingredients', ingredients_path%>
+        </li>
+        <li>
+          <%= link_to 'Paintings', paintings_path%>
+        </li>
+      </ul>
+    <nav>
   </body>
 </html>

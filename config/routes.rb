@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  resources :paintings
+  root 'welcome#index'
+  get 'welcome/index'
+  get 'reviews/create'
+  get 'reviews/destroy'
   resources :ingredients
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
   resources :books
   resources :articles do
     resources :comments
